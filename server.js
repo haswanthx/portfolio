@@ -1,53 +1,46 @@
-/* server.js - The Backend */
+/* server.js - Vercel Ready */
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Middleware to parse form data
+// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes to serve HTML pages
+// FIX 1: Use process.cwd() so Vercel finds the folder
+app.use(express.static(path.join(process.cwd(), 'public')));
+
+// Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 });
 
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'about.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'about.html'));
 });
 
 app.get('/projects', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'projects.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'projects.html'));
 });
 
 app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'contact.html'));
 });
 
-// Backend Logic: Handle Contact Form Submission
 app.post('/send-message', (req, res) => {
     const { name, email, message } = req.body;
-    
-    // In a real app, you would save this to a database (MongoDB) or email it.
-    // For now, we log it to the server console to prove it works.
-    console.log(`\n--- NEW MESSAGE RECEIVED ---`);
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Message: ${message}`);
-    console.log(`----------------------------\n`);
-
-    // Send a success response back to the user
-    res.send(`
-        <h1 style="color:white; background:#0f0f11; height:100vh; display:flex; justify-content:center; align-items:center; font-family:sans-serif;">
-            Message Received, ${name}! I will contact you at ${email} soon.
-        </h1>
-    `);
+    console.log(`Message from ${name}: ${message}`);
+    res.send(`<h1>Message Received, ${name}! I will contact you at ${email} soon.</h1>`);
 });
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+// FIX 2: Export app for Vercel
+module.exports = app;
+
+// Only listen if NOT running on Vercel (local testing)
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    });
+}
