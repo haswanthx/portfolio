@@ -5,32 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Haswanth</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body>
+<body class="premium-bg" style="background-color: #050505;">
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
     <nav>
-        <div class="logo">Haswanth<span>.</span></div>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/about" class="active">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-        <a href="/contact"><button class="btn-hire">Hire Me</button></a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="container">
-        <h1 class="page-title">About <span class="highlight">Me</span></h1>
-        <div style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border);">
-            <p style="font-size: 18px; margin-bottom: 20px;">
-                I am <b>Haswanth</b>, a passionate Software Engineer and student. My work focuses on the intersection of Artificial Intelligence and real-world security applications.
-            </p>
-            <p style="color: var(--text-gray); margin-bottom: 20px;">
-                I am currently working on advanced projects like <b>Deepfake Detection</b> and <b>Abandoned Luggage Detection</b>. 
-                I code in VS Code on macOS and share my work on GitHub (<b>@haswanthx</b>).
-            </p>
-            <a href="https://github.com/haswanthx" target="_blank">
-                <button class="btn-hire" style="background: #333;">Visit My GitHub</button>
-            </a>
+    <div class="container fade-in" style="justify-content: center;">
+        <div class="glass-panel">
+            
+            <div style="flex: 1.2;">
+                <div class="subtitle-glow">Artificial Intelligence Engineer</div>
+                <h1 class="gradient-text" style="font-size: 2.5rem; margin: 10px 0 20px 0; line-height: 1.2;">
+                    Building Intelligent, <br>Scalable Solutions.
+                </h1>
+                
+                <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 20px;">
+                    I am a Computer Science (AI & ML) student at <strong>Aditya College of Engineering</strong> focused on building real-world solutions.
+                </p>
+                <p style="color: #94a3b8; line-height: 1.7;">
+                    I’ve developed systems like a real-time <strong>Abandoned Object Detection</strong> model with YOLOv8 and a <strong>Deepfake Detection</strong> system. I write clean, scalable code.
+                </p>
+            </div>
+
+            <div class="visual-container">
+                <div class="tech-frame">
+                    <div class="corner tl"></div>
+                    <div class="corner br"></div>
+                    <img src="me.jpg" alt="Haswanth" style="width: 100%; max-width: 320px; border-radius: 16px; display: block; filter: contrast(1.1) brightness(0.9);">
+                </div>
+            </div>
+
         </div>
     </div>
 </body>

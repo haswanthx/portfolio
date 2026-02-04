@@ -10,42 +10,52 @@
 
     <nav>
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="projects.html" class="active">Projects</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="container">
-        <h1>Selected Projects</h1>
-        <p>A showcase of my technical work in AI and Data.</p>
+    <div class="container fade-in">
+        <h1 style="text-align: center; margin-bottom: 10px;">Featured Work</h1>
+        <p style="text-align: center; color: #888; margin-bottom: 50px;">A showcase of my technical projects.</p>
 
         <div class="project-grid">
             <div class="project-card">
-                <h3 style="margin-top: 0; color: white;">Abandoned Object Detection</h3>
-                <p>
-                    Real-time system using YOLO/CNN to detect unattended luggage in public spaces. 
-                    Designed to enhance security by automatically identifying objects left behind.
+                <h3>Abandoned Object Detection</h3>
+                <p style="color: #a1a1aa; margin-bottom: 20px;">
+                    Real-time security system using YOLOv8 and OpenCV. Automatically detects luggage left unattended in public spaces.
                 </p>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">YOLOv8</span>
-                    <span class="tag">OpenCV</span>
+                <div>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">YOLOv8</span>
+                    <span class="tech-tag">OpenCV</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3 style="margin-top: 0; color: white;">Deepfake Detection System</h3>
-                <p>
-                    A comprehensive system utilizing CNN and LSTM architectures to analyze video frames 
-                    and detect manipulated media content with high accuracy.
+                <h3>Deepfake Detection System</h3>
+                <p style="color: #a1a1aa; margin-bottom: 20px;">
+                    Advanced forensic tool utilizing a hybrid CNN-LSTM architecture to analyze video frames and identify manipulated media.
                 </p>
-                <div class="tags">
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">CNN-LSTM</span>
-                    <span class="tag">Research</span>
+                <div>
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">CNN-LSTM</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Personal Portfolio</h3>
+                <p style="color: #a1a1aa; margin-bottom: 20px;">
+                    The website you are viewing now. Built with high-performance HTML/CSS and glassmorphism UI.
+                </p>
+                <div>
+                    <span class="tech-tag">Web Design</span>
+                    <span class="tech-tag">Vercel</span>
+                    <span class="tech-tag">CSS3</span>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
