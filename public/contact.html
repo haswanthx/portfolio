@@ -7,35 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav>
-        <div class="logo">Haswanth<span>.</span></div>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact" class="active">Contact</a></li>
-        </ul>
-        <button class="btn-hire">Hire Me</button>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
     </nav>
 
-    <div class="container">
-        <h1 class="page-title">Get in <span class="highlight">Touch</span></h1>
-        
-        <form action="/api/contact" method="POST" style="max-width: 600px;"></form>
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" required placeholder="Your Name">
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" required placeholder="Your Email">
-            </div>
-            <div class="form-group">
-                <label>Message</label>
-                <textarea name="message" rows="5" required placeholder="How can I help you?"></textarea>
-            </div>
-            <button type="submit" class="btn-hire" style="width: 100%;">Send Message</button>
+    <div class="container" style="max-width: 600px;">
+        <h1>Get In Touch</h1>
+        <p>Looking for a Data Analyst to join your team? I'd love to chat.</p>
+
+        <form action="https://formspree.io/f/YOUR_LINK_HERE" method="POST" style="text-align: left; margin-top: 30px;">
+            
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="recruiter@company.com" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Hi Haswanth..." required></textarea>
+
+            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
         </form>
     </div>
+
 </body>
 </html>
