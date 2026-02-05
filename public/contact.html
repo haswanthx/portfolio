@@ -5,8 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Haswanth</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* 1. THE GLASS CARD */
+        .contact-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            max-width: 550px;
+            width: 100%;
+        }
+
+        /* 2. THE INPUTS */
+        .premium-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            box-sizing: border-box; /* Fixes padding issues */
+        }
+
+        .premium-input:focus {
+            border-color: #ea580c;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.15);
+        }
+
+        /* 3. TYPOGRAPHY */
+        h1 { font-size: 2.2rem; font-weight: 700; margin: 0 0 10px 0; letter-spacing: -0.5px; }
+        .subtitle { color: #a1a1aa; line-height: 1.6; margin-bottom: 40px; font-size: 1.05rem; }
+        .form-label { font-size: 0.75rem; font-weight: 700; color: #71717a; text-transform: uppercase; letter-spacing: 1.2px; }
+
+        /* 4. THE BUTTON */
+        .premium-btn {
+            width: 100%;
+            background: linear-gradient(to right, #ea580c, #c2410c);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+        .premium-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(234, 88, 12, 0.4); }
+
+        /* 5. DIVIDER & SOCIALS */
+        .divider-container { display: flex; align-items: center; margin: 35px 0 25px 0; color: #52525b; font-size: 0.8rem; font-weight: 500; letter-spacing: 1px; }
+        .line { flex: 1; height: 1px; background: #3f3f46; }
+        
+        .social-row { display: flex; justify-content: center; gap: 20px; }
+        .social-icon-btn { 
+            width: 48px; 
+            height: 48px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 12px; 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            transition: 0.3s; 
+            text-decoration: none;
+        }
+        .social-icon-btn:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-2px); }
+        .social-icon-btn svg { width: 22px; fill: #d4d4d8; transition: 0.3s; }
+        .social-icon-btn:hover svg { fill: white; }
+    </style>
 </head>
-<body>
+<body class="premium-bg" style="background-color: #050505;">
+
+    <div class="orb orb-1" style="opacity: 0.3;"></div>
+    <div class="orb orb-2" style="opacity: 0.3;"></div>
 
     <nav>
         <a href="index.html">Home</a>
@@ -15,22 +98,51 @@
         <a href="contact.html" class="active">Contact</a>
     </nav>
 
-    <div class="container fade-in" style="justify-content: center; align-items: center;">
+    <div class="container fade-in" style="justify-content: center; align-items: center; min-height: 85vh;">
+        
         <div class="contact-wrapper">
-            <h1 style="text-align: center; margin-top: 0;">Let's Connect</h1>
-            <p style="text-align: center; color: #888; margin-bottom: 30px;">
-                I'm open to Data Analyst and Software Engineering roles.
-            </p>
+            
+            <div style="text-align: left;">
+                <h1>Let’s Collaborate.</h1>
+                <p class="subtitle">
+                    Interested in my work or have a data project? <br>
+                    Fill out the form below and I'll respond shortly.
+                </p>
+            </div>
 
-            <form action="https://formspree.io/f/YOUR_LINK_HERE" method="POST">
-                <label style="display: block; margin-bottom: 5px; color: #888;">Your Email</label>
-                <input type="email" name="email" placeholder="recruiter@company.com" required>
+            <form action="https://formspree.io/f/xwvqgwzd" method="POST">
+                
+                <div style="margin-bottom: 24px;">
+                    <label class="form-label">Your Email</label>
+                    <input type="email" name="email" class="premium-input" placeholder="example@company.com" required>
+                </div>
 
-                <label style="display: block; margin-bottom: 5px; color: #888;">Message</label>
-                <textarea name="message" rows="5" placeholder="Hi Haswanth..." required></textarea>
+                <div style="margin-bottom: 10px;">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" rows="4" class="premium-input" placeholder="How can I help you?" required></textarea>
+                </div>
 
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="premium-btn">Send Message</button>
             </form>
+
+            <div class="divider-container">
+                <div class="line"></div>
+                <div style="padding: 0 15px;">OR CONNECT ON</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="social-row">
+                
+                <a href="https://github.com/haswanthx" target="_blank" class="social-icon-btn" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.896-.014 3.293 0 .319.22.694.825.576C20.566 22.095 24 17.597 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+
+                <a href="https://www.linkedin.com/in/haswanthtumallapalli/" target="_blank" class="social-icon-btn" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+
+            </div>
+
         </div>
     </div>
 </body>

@@ -1,38 +1,38 @@
-/* style.css - Complete & Fixed Premium Theme */
+/* style.css - Polished & Accessible */
 :root {
     --bg-color: #050505;
     --card-bg: rgba(20, 20, 20, 0.6);
     --text-main: #ffffff;
-    --text-muted: #a1a1aa;
-    --accent: #ea580c; /* Orange */
-    --accent-glow: #4f46e5; /* Indigo */
+    /* IMPROVED CONTRAST: Lighter gray for better readability */
+    --text-muted: #d4d4d8; 
+    --accent: #ea580c; 
+    --accent-glow: #4f46e5;
     --border: #333333;
 }
 
-/* 1. BASE RESET (Fixes White Page Bug) */
+/* 1. BASE STYLES */
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* Subtle premium gradient */
-    background-image: radial-gradient(circle at top right, #1a1a1a 0%, #050505 40%);
+    background-image: radial-gradient(circle at top right, #1a1a1a 0%, #050505 45%);
 }
 
-/* 2. NAVIGATION (Consistent Across All Pages) */
+/* 2. NAVIGATION */
 nav {
     display: flex;
     justify-content: center;
     gap: 30px;
     padding: 20px;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: rgba(5, 5, 5, 0.85); /* Slightly darker for contrast */
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -42,14 +42,15 @@ nav a {
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
+    font-size: 0.95rem;
 }
 nav a:hover, nav a.active { color: var(--accent); }
 
-/* 3. LAYOUT & ALIGNMENT */
+/* 3. LAYOUT */
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px 24px; /* Increased side padding for mobile */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -57,106 +58,115 @@ nav a:hover, nav a.active { color: var(--accent); }
     box-sizing: border-box;
 }
 
-/* 4. HOME PAGE (Split Layout Fix) */
+/* 4. HERO SECTION */
 .hero-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 60px;
-    padding: 60px 0;
+    padding: 80px 0; /* More vertical breathing room */
     width: 100%;
 }
 .hero-text { flex: 1; text-align: left; }
 
-/* FIXED: Image Alignment Engine */
 .hero-image-container {
     flex: 1;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
+    justify-content: center;
+    align-items: center;
     padding-left: 20px;
 }
 .profile-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
     height: auto;
-    aspect-ratio: 1/1; /* Keeps it square */
+    aspect-ratio: 1/1;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 24px;
     border: 1px solid var(--border);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); /* Softer, deeper shadow */
     transition: transform 0.3s ease;
 }
-.profile-img:hover { transform: scale(1.02); border-color: var(--accent); }
+.profile-img:hover { transform: scale(1.02) rotate(1deg); border-color: var(--accent); }
 
-/* Buttons & Socials */
-.btn-container { display: flex; gap: 15px; margin-bottom: 25px; }
-.btn { background: var(--accent); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.2s; }
-.btn:hover { background: #c2410c; transform: translateY(-2px); }
-.btn-outline { border: 1px solid var(--border); color: var(--text-muted); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.2s; }
-.btn-outline:hover { border-color: white; color: white; }
-
-.social-container { display: flex; gap: 15px; margin-top: 20px; }
-.social-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #111; border: 1px solid #333; border-radius: 50%; transition: 0.3s; }
-.social-btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-3px); }
-.social-btn svg { fill: white; width: 20px; height: 20px; }
-
-/* 5. PROJECTS & GRID */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; }
-.project-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 30px;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
-}
-.project-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-.tech-tag { background: rgba(255,255,255,0.05); color: #a1a1aa; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); display: inline-block; margin-right: 5px; margin-top: 5px; }
-
-/* 6. PREMIUM ABOUT PAGE (Glassmorphism) */
-.premium-bg { position: relative; overflow-x: hidden; }
-.orb { position: absolute; border-radius: 50%; filter: blur(90px); z-index: -1; opacity: 0.4; animation: floatOrb 10s infinite alternate; }
-.orb-1 { width: 300px; height: 300px; background: #4f46e5; top: -50px; left: -50px; }
-.orb-2 { width: 350px; height: 350px; background: #7c3aed; bottom: -50px; right: -50px; }
-@keyframes floatOrb { 0% { transform: translate(0,0); } 100% { transform: translate(30px, -30px); } }
-
-.glass-panel {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    padding: 50px;
-    display: flex;
-    gap: 50px;
+/* 5. COMPONENTS */
+/* Status Badge (New Branding Element) */
+.status-badge {
+    display: inline-flex;
     align-items: center;
-    width: 100%;
-    box-sizing: border-box;
+    gap: 8px;
+    background: rgba(234, 88, 12, 0.1);
+    border: 1px solid rgba(234, 88, 12, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-weight: 600;
 }
-.gradient-text { background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+    animation: pulse 2s infinite;
+}
 
-/* Visual Frame in About */
-.visual-container { flex: 1; display: flex; justify-content: center; position: relative; }
-.tech-frame { position: relative; padding: 10px; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; }
-.corner { position: absolute; width: 20px; height: 20px; border: 2px solid #6366f1; }
-.tl { top: -2px; left: -2px; border-bottom: none; border-right: none; border-radius: 6px 0 0 0; }
-.br { bottom: -2px; right: -2px; border-top: none; border-left: none; border-radius: 0 0 6px 0; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
-/* 7. CONTACT FORM */
-.contact-wrapper { max-width: 600px; width: 100%; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
-input, textarea { width: 100%; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; color: white; margin-bottom: 20px; box-sizing: border-box; }
-.submit-btn { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-.submit-btn:hover { background: #c2410c; }
+/* Buttons */
+.btn-container { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+.btn { background: var(--accent); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.2s; border: 1px solid transparent; }
+.btn:hover { background: #c2410c; transform: translateY(-2px); }
+.btn-outline { border: 1px solid var(--border); color: var(--text-main); padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.2s; background: transparent; }
+.btn-outline:hover { border-color: var(--text-main); background: rgba(255,255,255,0.05); }
 
-/* 8. RESPONSIVE */
+/* Skills Pills */
+.tech-tag {
+    background: rgba(255,255,255,0.03);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 6px; /* Slightly squarer looks more tech/modern */
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 6px;
+    transition: 0.2s;
+}
+.tech-tag:hover {
+    border-color: var(--accent);
+    color: white;
+    background: rgba(234, 88, 12, 0.1);
+}
+
+/* 6. RESPONSIVE (Improved Mobile View) */
 @media (max-width: 900px) {
-    .hero-wrapper, .glass-panel { flex-direction: column-reverse; text-align: center; gap: 30px; }
+    .container {
+        padding: 40px 24px; /* More padding on mobile */
+    }
+    .hero-wrapper { 
+        flex-direction: column-reverse; 
+        text-align: center; 
+        gap: 50px; /* More space between image and text */
+        padding: 40px 0;
+    }
     .hero-text { text-align: center; }
     .hero-image-container { padding-left: 0; }
-    .btn-container, .social-container { justify-content: center; }
-    .profile-img { max-width: 280px; }
+    .btn-container { justify-content: center; }
+    .profile-img { max-width: 260px; }
+    .social-container { justify-content: center; }
 }
 
 /* Animation */
 .fade-in { animation: fadeIn 0.8s ease-out forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Social Icons */
+.social-container { display: flex; gap: 15px; margin-top: 25px; }
+.social-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 12px; transition: 0.3s; }
+.social-btn:hover { border-color: var(--accent); background: rgba(234, 88, 12, 0.1); transform: translateY(-3px); }
+.social-btn svg { fill: var(--text-muted); width: 22px; height: 22px; transition: 0.3s; }
+.social-btn:hover svg { fill: white; }
