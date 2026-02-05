@@ -1,9 +1,8 @@
-/* style.css - Polished & Accessible */
+/* style.css - Final Polished Version (Sharp Image + Mobile Fix) */
 :root {
     --bg-color: #050505;
     --card-bg: rgba(20, 20, 20, 0.6);
     --text-main: #ffffff;
-    /* IMPROVED CONTRAST: Lighter gray for better readability */
     --text-muted: #d4d4d8; 
     --accent: #ea580c; 
     --accent-glow: #4f46e5;
@@ -30,7 +29,7 @@ nav {
     justify-content: center;
     gap: 30px;
     padding: 20px;
-    background: rgba(5, 5, 5, 0.85); /* Slightly darker for contrast */
+    background: rgba(5, 5, 5, 0.85);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     position: sticky;
@@ -50,7 +49,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 24px; /* Increased side padding for mobile */
+    padding: 40px 24px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -64,7 +63,7 @@ nav a:hover, nav a.active { color: var(--accent); }
     align-items: center;
     justify-content: space-between;
     gap: 60px;
-    padding: 80px 0; /* More vertical breathing room */
+    padding: 80px 0;
     width: 100%;
 }
 .hero-text { flex: 1; text-align: left; }
@@ -76,6 +75,8 @@ nav a:hover, nav a.active { color: var(--accent); }
     align-items: center;
     padding-left: 20px;
 }
+
+/* FIXED: Sharp Image Rendering */
 .profile-img {
     width: 100%;
     max-width: 380px;
@@ -84,13 +85,18 @@ nav a:hover, nav a.active { color: var(--accent); }
     object-fit: cover;
     border-radius: 24px;
     border: 1px solid var(--border);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); /* Softer, deeper shadow */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     transition: transform 0.3s ease;
+
+    /* SHARPNESS FIX START */
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+    transform: translateZ(0); 
+    /* SHARPNESS FIX END */
 }
 .profile-img:hover { transform: scale(1.02) rotate(1deg); border-color: var(--accent); }
 
 /* 5. COMPONENTS */
-/* Status Badge (New Branding Element) */
 .status-badge {
     display: inline-flex;
     align-items: center;
@@ -112,22 +118,19 @@ nav a:hover, nav a.active { color: var(--accent); }
     box-shadow: 0 0 8px var(--accent);
     animation: pulse 2s infinite;
 }
-
 @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
-/* Buttons */
 .btn-container { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
 .btn { background: var(--accent); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.2s; border: 1px solid transparent; }
 .btn:hover { background: #c2410c; transform: translateY(-2px); }
 .btn-outline { border: 1px solid var(--border); color: var(--text-main); padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.2s; background: transparent; }
 .btn-outline:hover { border-color: var(--text-main); background: rgba(255,255,255,0.05); }
 
-/* Skills Pills */
 .tech-tag {
     background: rgba(255,255,255,0.03);
     color: var(--text-muted);
     padding: 8px 16px;
-    border-radius: 6px; /* Slightly squarer looks more tech/modern */
+    border-radius: 6px;
     font-size: 0.85rem;
     font-weight: 500;
     border: 1px solid var(--border);
@@ -142,31 +145,57 @@ nav a:hover, nav a.active { color: var(--accent); }
     background: rgba(234, 88, 12, 0.1);
 }
 
-/* 6. RESPONSIVE (Improved Mobile View) */
+.social-container { display: flex; gap: 15px; margin-top: 25px; }
+.social-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 12px; transition: 0.3s; }
+.social-btn:hover { border-color: var(--accent); background: rgba(234, 88, 12, 0.1); transform: translateY(-3px); }
+.social-btn svg { fill: var(--text-muted); width: 22px; height: 22px; transition: 0.3s; }
+.social-btn:hover svg { fill: white; }
+
+/* 6. RESPONSIVE (FIXED FOR MOBILE SPACING) */
 @media (max-width: 900px) {
     .container {
-        padding: 40px 24px; /* More padding on mobile */
+        /* INCREASED PADDING: Prevents text touching edges on phones */
+        padding: 60px 30px; 
+        max-width: 100%;
+        overflow-x: hidden;
     }
     .hero-wrapper { 
         flex-direction: column-reverse; 
         text-align: center; 
-        gap: 50px; /* More space between image and text */
-        padding: 40px 0;
+        gap: 40px; 
+        padding: 20px 0;
+        width: 100%;
     }
-    .hero-text { text-align: center; }
-    .hero-image-container { padding-left: 0; }
-    .btn-container { justify-content: center; }
-    .profile-img { max-width: 260px; }
+    .hero-text { 
+        text-align: center; 
+        width: 100%;
+        padding: 0 10px;
+    }
+    .hero-image-container { 
+        padding-left: 0; 
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .profile-img { 
+        max-width: 280px; 
+        width: 70%;       
+        margin: 0 auto;
+    }
+    .btn-container { 
+        justify-content: center; 
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    .btn, .btn-outline {
+        width: 100%; 
+        text-align: center;
+        box-sizing: border-box;
+    }
     .social-container { justify-content: center; }
 }
 
 /* Animation */
 .fade-in { animation: fadeIn 0.8s ease-out forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Social Icons */
-.social-container { display: flex; gap: 15px; margin-top: 25px; }
-.social-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 12px; transition: 0.3s; }
-.social-btn:hover { border-color: var(--accent); background: rgba(234, 88, 12, 0.1); transform: translateY(-3px); }
-.social-btn svg { fill: var(--text-muted); width: 22px; height: 22px; transition: 0.3s; }
-.social-btn:hover svg { fill: white; }
